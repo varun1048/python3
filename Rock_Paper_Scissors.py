@@ -35,6 +35,7 @@ while True:
 
 
         if (pl == 3) or (c == 3):
+ 
             print("\t\t\tGame Over")
             print(f"\t\t  player :{pl} computer :{c}")
             print(f" ........................{winner} hahahaha"  )  
@@ -44,9 +45,7 @@ while True:
             if(p == 'n'):
                 print("Thanks for playing . Bye :)")
                 break
-        # else:
-            # print("\t........" + winner)  
-
+ 
         
 
     else:
