@@ -1,3 +1,5 @@
+from colorama import init; init()
+from termcolor import colored
 import random 
 
 pl  = 0
@@ -38,7 +40,11 @@ while True:
  
             print("\t\t\tGame Over")
             print(f"\t\t  player :{pl} computer :{c}")
-            print(f" ........................{winner} hahahaha"  )  
+            args={
+                "color":"red",  
+                "on_color":"on_cyan",}
+            colored(winner,**args)
+            # print(f" ........................{winner} hahahaha"  )  
             pl = 0
             c =3
             p = input("do want to play (y,n) :")    
