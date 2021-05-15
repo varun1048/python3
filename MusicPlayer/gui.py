@@ -1,8 +1,10 @@
 from Masstamilan import Masstamilan
 
-# inner = input("Album name :")
-inner = "master"
+inner = input("Album name :")
+# inner = "sarkar"
 songs  = Masstamilan(inner)
-# songs.displaySongs()
-# songs.Download()
 songs.albumInfo()
+songs.displaySongs()
+# songs.Download()
+songs.playOnline()
+
