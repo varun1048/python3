@@ -66,7 +66,7 @@ class Masstamilan:
                     print("Oops!\t", err.__class__, "occurred. at Download")
             else:
                 if num in range(len(self.datas)):
-
+                    print("loading")
                     self.fileName =str(self.album_name+"_"+self.datas[num]["name"])+".mp3"
                     res = server(self.datas[num]["link"])
                     with open(self.fileName,'wb') as file:
@@ -103,8 +103,12 @@ class Masstamilan:
                 else:
                     print("invalied input")        
 
+# from Masstamilan import Masstamilan
+# inner = input("Album name :")
+inner = "sarkar"
+songs  = Masstamilan(inner)
+songs.albumInfo()
+# songs.displaySongs()
+# # songs.Download()
+# songs.playOnline()
 
-
-# call  = Masstamilan(input("Album name Tamil :"))
-# call.displaySongs()
-# call.Download()
