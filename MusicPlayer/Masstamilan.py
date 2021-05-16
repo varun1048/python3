@@ -30,7 +30,7 @@ class Masstamilan:
             keys=["Starring","Director","Music"]
             try:
                 out=self.soup.find(class_="info").p.get_text()
-                print(out)
+                return out
             except Exception as err:
                 print(err)
 
@@ -105,9 +105,9 @@ class Masstamilan:
 
 # from Masstamilan import Masstamilan
 # inner = input("Album name :")
-inner = "sarkar"
-songs  = Masstamilan(inner)
-songs.albumInfo()
+# inner = "sarkar"
+# songs  = Masstamilan(inner)
+# songs.albumInfo()
 # songs.displaySongs()
 # # songs.Download()
 # songs.playOnline()
