@@ -1,9 +1,7 @@
 from tkinter import *  
-from test import Masstamilan
+from backend_Masstamilan import Masstamilan
 from playsound import playsound  
 from PIL import Image, ImageTk 
-
-
 
 class GUI:  
    def __init__(self):
@@ -14,24 +12,24 @@ class GUI:
       self.buttons = []
       self.root.geometry("500x100")       
 
-
+      Label(self.root,text = "Mass Tamilan",fg="red", pady=10, padx=10, font=10).pack() 
       Label(self.root,text = "Album",).place(x = 90,y = 50) 
       Entry(self.root, width=35,textvariable=self.name_var).place(x = 150,y = 50)       
       Button(self.root,text = "search",command=lambda: self.searchBox()).place(x = 350,y = 47)
-      # Button(self.root,text = "Stop",command=lambda :self.mass.online(False) ).place(x = 350,y = 150)
+
+
 
    def searchBox(self):
-      self.root.geometry("650x650")   
-      # print(self.name_var.get())
+      self.root.geometry("650x550")   
+
       self.mass.search(self.name_var.get())
-      # self.mass.search("master")
       for ranner in range(len(self.buttons)):
          self.buttons[ranner].destroy()
       
+      self.wast_function()
       self.displayImage()
       self.buttons.clear()
       self.buttonlist(self.mass.datas)
-
 
       self.Info(self.mass.albumInfo())
       self.name_var.initialize("")
@@ -46,7 +44,6 @@ class GUI:
          yl += 40
 
    def displayImage(self):
-      # Use library PIL to display png picture
       global img
       path = 'temp.jpg'
       img = ImageTk.PhotoImage(Image.open(path), Image.ANTIALIAS)
@@ -56,7 +53,6 @@ class GUI:
       
 
    def Playsong(self,songName):    
-      # Button(self.root,text = "Stop",command=lambda :self.mass.online(False) ).place(x = 210+40,y = 350)
       self.lab = Label(self.root,text =songName['name']+"\t\t").place(x = 300,y = 350)
       self.mass.playOnline(songName['link'])
 
@@ -66,8 +62,19 @@ class GUI:
    def Info(self,info):
       test = Label(self.root)   
       test.destroy()
-      test = Label(self.root,text =info).place(x = 250,y = 250,width=400)    
+      test = Label(self.root,text =info).place(x = 259,y = 330,width=400)    
 
+   def wast_function(self,):
+      noname = self.mass.album_name.split(" ")
+      bank= []
+      for flash in  noname:
+         if flash == "Mp3":
+               bank.pop()
+               bank.pop()
+               break
+         bank.append(flash+" ") 
+      out = "".join(bank)
+      self.alNmae = Label(self.root,text = out+"\t\t\t\t\t").place(x = 350,y = 130) 
 
    def mainloop(self):
       self.root.mainloop()
@@ -78,18 +85,3 @@ obj.mainloop()
 
 
 
-
-# # obj.searchBox()
-# songs = ["Kutti Story","Vaathi Coming","Vaathi Raid","?asdkfugt"]        
-# # obj.buttonlist(songs)
-# info="""Starring: Vijay, Keerthy Suresh, Varalakshmi SarathKumar
-# Director: AR Murugadoss
-# Music: A R Rahman
-# Mp3 Quality: 128 Kbps/ 320 Kbps
-# Year: 2018
-# """
-# # obj.Info(info)
-
-
-        
-    
