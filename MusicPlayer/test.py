@@ -28,6 +28,13 @@ class Masstamilan:
             filterName = lambda name : "".join((x  for x in name if x != "\t" and x != "\n" ))
             self.datas = [{"name":filterName(songName[x].string),"link":songLink[x]["href"]} for x in  range(len(songLink))]
 
+            imageclass = self.soup.find(class_="main-image")
+            imageScr=imageclass.img['src']
+            imageRes = server(imageScr)
+            with open("temp.jpg","wb") as file:
+                file.write(imageRes.content)
+
+
     def albumInfo(self):
         if self.playMode:
             keys=["Starring","Director","Music"]
@@ -77,12 +84,6 @@ class Masstamilan:
                     print("Download Done")
                 else:
                     print("invalied input")
-                
-    def _online(self,onoff):
-        print("on off function")
-        print(onoff)
-        if onoff:
-            playsound("temp.mp3")  
 
     def playOnline(self,inner):
         temp="temp.mp3"
@@ -94,19 +95,11 @@ class Masstamilan:
         
         print("playing .....")
         print("press (ctrl + c) to exit")
-        self._online(True)  
+        playsound("temp.mp3")  
+        if os.path.exists(temp):
+            os.remove(temp)
+        else:
+            print("The file does not exist") 
         print("songs ends")
 
-                # else:
-                #     print("invalied input")        
-
-# from Masstamilan import Masstamilan
-# inner = input("Album name :")
-# inner = "Soorarai Pottru"
-# songs  = Masstamilan()
-# songs.search(inner)
-# songs.albumInfo()
-# songs.displaySongs()
-# # # songs.Download()
-# songs.playOnline()
-
+ 

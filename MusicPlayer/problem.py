@@ -1,3 +1,31 @@
+from tkinter import *
+from tkinter import ttk
+from PIL import Image, ImageTk 
+
+
+
+class done:
+    def __init__(self):
+        self.root = Tk()                
+
+    def display(self):
+        # Use library PIL to display png picture
+        global img
+        path = 'temp.jpg'
+        img = ImageTk.PhotoImage(Image.open(path), Image.ANTIALIAS)
+        panel = Label(self.root, image = img)
+        panel.pack()
+
+    def oner(self):
+        ButtonDisplay = ttk.Button(self.root, text="Display", command=self.display)
+        ButtonDisplay.pack()
+
+    def looper(self):
+        self.root.mainloop()
+
+obj = done()
+obj.oner()
+obj.looper()
 
 
 
@@ -5,66 +33,26 @@
 
 
 
+# from tkinter import *
+# from PIL import ImageTk,Image
 
-
-
-
-
-
-
-
-
-
-
-
-# import builtins
-# from tkinter import *  
-
-# root = Tk()
-
-# buttons = []
-# def delete():
-#     for ranner in range(5):
-#         buttons[ranner].destroy()
-
-#     buttons.clear()
-#     print(buttons)
-
-# def add():
-#     for run in range(2):
-#         instert=Button(root,text=run)
-#         buttons.append(instert)
-#         buttons[run].pack()
-
-
-# Button(root,text="delete",command=delete).pack()
-# Button(root,text="add",command=add).pack()
-    
-# for run in range(5):
-#     instert=Button(root,text="asdf")
-#     buttons.append(instert)
-#     buttons[run].pack()
-
-
-# root.geometry("100x100")      
-# root.mainloop()
-
-
-
-
-
-
-#labels = []
-
-# def delete():
-#     for ranner in range(2):
-#         labels[ranner].destroy()
+# global img 
+# class cake:
+#     def __init__(self):
+#         global img 
         
+#     def foo(self):    
+#         img = ImageTk.PhotoImage(Image.open("master.jpg"))     
 
-# l = Button(root,text="delete",command=delete).pack()
+#     def fool(self):      
+#         self.img = ImageTk.PhotoImage(Image.open("master.jpg"))     
+#         self.canvas.create_image(20,20, anchor=NW, image=self.img)    
+#         self.canvas.image = self.img   
 
-# for run in range(2):
-#     instert=Label(root,text=run)
-#     labels.append(instert)
-#     labels[run].pack()
+#     def loop(self):
+#         self.root.mainloop()
 
+# ake = cake()
+# ake.foo()
+# ake.fool()
+# ake.loop()

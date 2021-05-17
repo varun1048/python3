@@ -30,7 +30,7 @@ class Masstamilan:
             keys=["Starring","Director","Music"]
             try:
                 out=self.soup.find(class_="info").p.get_text()
-                return out
+                print(out)
             except Exception as err:
                 print(err)
 
@@ -98,17 +98,33 @@ class Masstamilan:
                             os.remove(temp)
                         else:
                             print("The file does not exist") 
-                        print("songs ends")
-
+                        # raise Exception("----------------") 
                 else:
                     print("invalied input")        
 
-# from Masstamilan import Masstamilan
+inner = "sarkar"
 # inner = input("Album name :")
-# inner = "sarkar"
-# songs  = Masstamilan(inner)
-# songs.albumInfo()
-# songs.displaySongs()
-# # songs.Download()
-# songs.playOnline()
+songs  = Masstamilan(inner)
+songs.albumInfo()
+songs.displaySongs()
+songs.playOnline()
+# songs.Download()
+
+
+def loop():
+    inner="sarkar"
+    while inner:
+        try:
+            inner = input("Album name :")
+            if inner == "exit":
+                break
+
+            songs  = Masstamilan(inner)
+            songs.albumInfo()
+            songs.displaySongs()
+            songs.playOnline()
+        except:
+            print("tata...")
+    
+# loop()
 

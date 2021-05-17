@@ -1,6 +1,8 @@
 from tkinter import *  
 from test import Masstamilan
 from playsound import playsound  
+from PIL import Image, ImageTk 
+
 
 
 class GUI:  
@@ -10,20 +12,23 @@ class GUI:
       self.root = Tk()
       self.name_var=StringVar()
       self.buttons = []
+      self.root.geometry("500x100")       
 
 
       Label(self.root,text = "Album",).place(x = 90,y = 50) 
       Entry(self.root, width=35,textvariable=self.name_var).place(x = 150,y = 50)       
       Button(self.root,text = "search",command=lambda: self.searchBox()).place(x = 350,y = 47)
-      Button(self.root,text = "Stop",command=lambda :self.mass.online(False) ).place(x = 210+40,y = 350)
+      # Button(self.root,text = "Stop",command=lambda :self.mass.online(False) ).place(x = 350,y = 150)
 
    def searchBox(self):
+      self.root.geometry("650x650")   
       # print(self.name_var.get())
       self.mass.search(self.name_var.get())
       # self.mass.search("master")
       for ranner in range(len(self.buttons)):
          self.buttons[ranner].destroy()
       
+      self.displayImage()
       self.buttons.clear()
       self.buttonlist(self.mass.datas)
 
@@ -40,7 +45,13 @@ class GUI:
          i +=1
          yl += 40
 
-
+   def displayImage(self):
+      # Use library PIL to display png picture
+      global img
+      path = 'temp.jpg'
+      img = ImageTk.PhotoImage(Image.open(path), Image.ANTIALIAS)
+      panel = Label(self.root, image = img)
+      panel.place(x = 350,y = 150)
 
       
 
@@ -55,11 +66,10 @@ class GUI:
    def Info(self,info):
       test = Label(self.root)   
       test.destroy()
-      test = Label(self.root,text =info).place(x = 100,y = 555,width=400)    
+      test = Label(self.root,text =info).place(x = 250,y = 250,width=400)    
 
 
    def mainloop(self):
-      self.root.geometry("550x650")       
       self.root.mainloop()
 
 obj = GUI()
