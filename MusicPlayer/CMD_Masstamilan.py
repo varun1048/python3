@@ -106,19 +106,20 @@ class Masstamilan:
                     print("invalied input")        
 
 
-
+clear = lambda: os.system('cls')
 def loop():
     inner="sarkar"
     while inner:
         try:
+            clear()
             inner = input("Album name :")
             if inner == "exit":
                 break
 
             songs  = Masstamilan(inner)
-            # songs.albumInfo()
-            # songs.displaySongs()
-            # songs.playOnline()
+            songs.albumInfo()
+            songs.displaySongs()
+            songs.playOnline()
         except Exception as err:
             print(err)
     
