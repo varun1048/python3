@@ -1,8 +1,8 @@
 from math import tan
 import random 
 import os
-table  = 5
-limit = 20
+table  = 3
+limit = 60
 
 numbers = [x for x in range(0,(table*limit)+table,table)][1:]
 os.system("cls")
