@@ -23,7 +23,7 @@ javaScript = f"document.getElementsByClassName('listboxtext')[0].value = '{inner
 driver.execute_script(javaScript)
 driver.find_element_by_xpath('//*[@id="frmOnlineResult"]/table[2]/tbody/tr[1]/td/table/tbody/tr[1]/td/input[2]').click()
 
-
+#varun
 # print(driver.execute_script("return xmlHttp.responseText"))
 # driver.quit()
 # print(driver.execute_script("return document.getElementsByClassName('listboxtext')[0].value"))
