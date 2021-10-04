@@ -1,13 +1,14 @@
-from colorama import init; init()
+# from colorama import init; init()
 from termcolor import colored
 import random 
 
 pl  = 0
 c  = 0
+PlayerName= input("Enter your name:")
 print("\t\t\t 3 points to win")
 while True:
     print(F"\t\t\tplayer :{pl} computer :{c} ")
-    p1 = input("Ener Player \t:")
+    p1 = input(f"{PlayerName} Player \t:")
     p1 = str(p1)
 
     if p1=='r' or p1 == 's' or p1 == 'p':

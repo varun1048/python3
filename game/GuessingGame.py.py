@@ -4,7 +4,7 @@ num = random.randint(0,11)
 while True:
     innner = input("Guess a number between 1 and 10 :")
     if( int(innner) == num):
-        print("................You guessed it ypu won")
+        print("................You guessed it you won")
         p = input("do want to play (y,n) :")    
         if(p == 'n'):
             print("Thanks for playing . Bye :)")
