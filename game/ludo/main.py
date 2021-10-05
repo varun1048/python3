@@ -1,12 +1,19 @@
 from ludo_layout import Lodu
-import playes
+from player_info import Player
+import players
+
 def main():
-    ludo = Lodu(playes.varun)
-    # print(ludo.player_points())
-    ludo.logic()
+    varun = Player(players.varun)
+    saravana = Player(players.saravana)
+    
+    plaryes = [varun,saravana]
+    
+    ludo_game = Lodu(plaryes)
+    ludo_game.start()  
 
 if __name__ == '__main__':
     import os
     os.system('cls')
+
     main()
     print()
