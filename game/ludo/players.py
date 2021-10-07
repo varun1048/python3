@@ -4,18 +4,18 @@ varun ={
     "points":"0",
     "coins":"0",
     
-    "direction":"west", 
+    "direction":"north", 
     "position":{"x":1,"y":1} 
 }
 
-saravana ={
-    "name": "Sarava",
+antony ={
+    "name": "antony",
     "color": "yellow",
     "points":"0",
     "coins":"0",
 
-    "direction":"west", 
-    "position":{"x":3,"y":3} 
+    "direction":"north", 
+    "position":{"x":3,"y":6} 
 }
 
 sam ={

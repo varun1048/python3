@@ -20,6 +20,7 @@ class Board:
     def top_line(self,top):
         line = ""
         conter = 0
+        
         for _ in range(top):
             conter += 1            
             if   conter == 8:
@@ -37,21 +38,28 @@ class Board:
         return False
 
     def display(self,direction)->str:
-        # east west, north, south 
-        top= 23
-        row = 3
-        column =6
+        
+        # east west, 
+        # top= 23
+        # row = 3
+        # column =6
        
-        if direction =="East" or direction =="West":
-            top= 47
-            row = 6
-            column = 3
+        # north, south 
+        top= 47
+        row = 6
+        column = 3
+        
+        # if direction =="East" or direction =="West":
+        #     top= 47
+        #     row = 6
+        #     column = 3
         
 
-        self.top_line(top)
+        # self.top_line(top)
+        print()
         for i in range(1,column+1):
             for j in range(1,row+1):
-                
+                print(" ",end="")
                 if self.print_color(i,j):                    
                     C =self.colros  
                     print(f"|__{C}__|",end=" ")
