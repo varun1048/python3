@@ -13,7 +13,9 @@ class Board:
         
     
     def mini_display(self):
-        os.system('cls')
+        # os.system('cls')
+        print()
+
         for player in self.players:
             print(f"""{player.name}  {player.color} {player.position}""")
 
@@ -30,50 +32,88 @@ class Board:
                 line +="_"           
         print(line)
     
-    def print_color(self,i,j) -> True:
+    def print_color(self,d,i,j) -> True:
         for p in self.players:
-            if p.position['x'] == i and p.position['y'] == j:
+            if (p.position['x'] == i and p.position['y'] == j) and p.direction == d:
                 self.colros= color(p.color )
                 return True
         return False
 
-    def display(self,direction)->str:
-        
-        # east west, 
-        # top= 23
-        # row = 3
-        # column =6
-       
-        # north, south 
-        top= 47
-        row = 6
-        column = 3
-        
-        # if direction =="East" or direction =="West":
-        #     top= 47
-        #     row = 6
-        #     column = 3
-        
 
-        # self.top_line(top)
+
+
+    def display(self):
         print()
+        os.system('cls')
+        
+        # east, west, north, south 
+
+        row = 3
+        column = 6
+
+        d = 'N'
         for i in range(1,column+1):
+            print()
+            print("\t"*7,end="  ")
             for j in range(1,row+1):
                 print(" ",end="")
-                if self.print_color(i,j):                    
+                if self.print_color(d,i,j):                    
                     C =self.colros  
                     print(f"|__{C}__|",end=" ")
                 else:
-                    print(f"|__{i}{j}_|",end=" ")
-                    # print(f"|_____|",end=" ")
+                    print(f"|_{d}-{i}{j}|",end=" ")
+                    # print(f"|_|",end=" ")
+                    # print()
+                    
+
+        print("\n"*2)
+
+
+        d = ['W','E']
+        for i in range(1,4):
+            print("\t\t",end="")
+
+            for we in d:
+                for j in range(1,7):
+                    print("",end=" ")
+                    if self.print_color(we,i,j):                    
+                        C =self.colros  
+                        print(f"|__{C}__|",end=" ")
+                    else:
+                        print(f"|{we}({i}{j})|",end=" ")
+                # print(f"|_____|",end=" ")
+                print("\t\t",end="")
+
             print()
 
+        print()
 
-# grey
-# red
-# green
-# yellow
-# blue
-# magenta
-# cyan
-# white
+
+
+
+
+
+        d = 'S'
+        for i in range(1,column+1):
+            print()
+            print("\t"*7,end="    ")
+            for j in range(1,row+1):
+                print(" ",end="")
+                if self.print_color(d,i,j):                    
+                    C =self.colros  
+                    print(f"|__{C}__|",end=" ")
+                else:
+                    print(f"|_{d}-{i}{j}|",end=" ")
+                
+                
+
+
+
+# # grey
+# # red
+# # green
+# # yellow
+# # blue
+# # magenta
+# # cyan
+# # white

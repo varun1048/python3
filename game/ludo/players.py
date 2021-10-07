@@ -4,7 +4,7 @@ varun ={
     "points":"0",
     "coins":"0",
     
-    "direction":"north", 
+    "direction":"N", 
     "position":{"x":1,"y":1} 
 }
 
@@ -14,8 +14,8 @@ antony ={
     "points":"0",
     "coins":"0",
 
-    "direction":"north", 
-    "position":{"x":3,"y":6} 
+    "direction":"S", 
+    "position":{"x":2,"y":2} 
 }
 
 sam ={

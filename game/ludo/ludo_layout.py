@@ -1,6 +1,7 @@
-from  main_display import Board 
 from time import sleep
 from random import randint
+
+from  main_display import Board 
 
 class Lodu():
     def __init__(self,plaryes):
@@ -15,7 +16,8 @@ class Lodu():
         dice = self.dice()
         # dice = 2
 
-        if int(self.plaryes[0].position['y']) > dice  :
+        if int(self.plaryes[0].position['y']) < dice  :
+            print(self.plaryes[0].position['y'] )
             new_y = ( self.plaryes[0].position['y'] + dice ) - 6
             new_x = self.plaryes[0].position['x'] + 1 
             
@@ -41,12 +43,15 @@ class Lodu():
     def start(self):
 
 
-        while True:
-            self.board.mini_display()
-            self.board.display('north')
-            # while True:
-            sleep(2)
-            self.moveing()
-            self.board.mini_display()
-            self.board.display('north')
-        
+        self.board.display()
+        self.board.mini_display()
+
+        def loop():
+            while True:
+                self.board.display()
+                self.board.mini_display()
+                sleep(2)
+                self.moveing()
+                self.board.mini_display()
+            # self.board.display('north')
+        # loop()
