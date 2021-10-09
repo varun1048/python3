@@ -14,7 +14,7 @@ position_all.append({"direction":"E","x":3,"y":6})
 position_all.append({"direction":"E","x":3,"y":5})    
 position_all.append({"direction":"E","x":3,"y":4})    
 position_all.append({"direction":"E","x":3,"y":3})    
-position_all.append({"direction":"E","x":3,"y":3})    
+position_all.append({"direction":"E","x":3,"y":2})    
 position_all.append({"direction":"E","x":3,"y":1})    
 
 #  east end
@@ -47,7 +47,7 @@ position_all.append({"direction":"W","x":3,"y":6})
 position_all.append({"direction":"W","x":3,"y":5})    
 position_all.append({"direction":"W","x":3,"y":4})    
 position_all.append({"direction":"W","x":3,"y":3})    
-position_all.append({"direction":"W","x":3,"y":3})    
+position_all.append({"direction":"W","x":3,"y":2})    
 position_all.append({"direction":"W","x":3,"y":1})
 
 position_all.append({"direction":"W","x":2,"y":1})    

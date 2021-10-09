@@ -8,7 +8,7 @@ def main():
 
     # plaryes.append(Player(players.varun))
     plaryes.append(Player(players.antony))
-    plaryes.append(Player(players.sam))
+    # plaryes.append(Player(players.sam))
     # plaryes.append(Player(players.sarana))
     
     ludo_game = Lodu(plaryes)

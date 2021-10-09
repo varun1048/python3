@@ -13,7 +13,7 @@ class Lodu():
         self.findout = []
     
     def dice(self) ->int:
-        return randint(1,7)
+        return randint(1,6)
     
 
 
@@ -22,8 +22,8 @@ class Lodu():
         for player_input in self.players:
             if player_input.name ==  player["name"]:
                 index = self.players.index(player_input)
-                # self.players[index].name = "gaundu"
                 print()
+
                 # print(self.players[index].position[player['coin']])
                 try:
                     
@@ -36,11 +36,10 @@ class Lodu():
 
                     except    IndexError:
                         # print( self.players[index].position[player['coin']] )
-                        print("ads")
                         self.players[index].position[player['coin']] = position_all[player['dice']-1]
 
                 except ValueError:
-                    print("list len",len(position_all))
+                    # print("list len",len(position_all))
                     print("not in list bro",index_chane)   
 
 
@@ -48,33 +47,54 @@ class Lodu():
     def player_input(self) ->dict:
         return {
             'name':"Antony",
-            'coin':2,
-            'dice':1
+            'coin':0,
+            'dice':self.dice()
         }
 
 
     def start(self):
 
-        import os
-        os.system("cls")
-        # self.board.display()
-        self.board.mini_display()
-        print(self.player_input())
-        self.move(self.player_input())
-        # sleep(2)
+        # import os
+        # os.system("cls")
         
+        # self.board.mini_display()
+        # print(self.player_input())
+
+
         # self.board.display()
-        for x in self.findout:
-            print(x)
-        self.board.mini_display()
+        # sleep(2)
+        # self.move(self.player_input())
+        # self.board.display()
+
+
+
+
+
+       
+        # self.board.display()
+        # d = self.dice()
+        # print(d)
+        # sleep(3)
+        # self.move( {
+        #     'name':"Antony",
+        #     'coin':0,
+        #     'dice':d
+        # })
+        # self.board.display()
+
+
+        # for x in self.findout:
+        #     print(x)
 
         def loop():
             while True:
-                self.board.display()
-                sleep(3.5)
-                self.move()
+                # self.board.display()
+                # sleep(1)
+                print(self.player_input())
+                self.move(self.player_input())
+                sleep(3)
                 self.board.display()
 
 
-        # loop()
+        loop()
 
