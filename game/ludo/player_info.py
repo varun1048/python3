@@ -5,7 +5,7 @@ class Player():
 
         # self.direction = info["direction"]
         self.position= info['position']
-        self.coins=  info['coins']
+        self.coins=  len(info['position'])
         self.points= info['points']
 
     def info(self):
