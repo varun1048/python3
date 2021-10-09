@@ -2,36 +2,37 @@ varun ={
     "name": "Varun ",
     "color": "red",
     "points":"0",
-    "coins":"0",
     
-    "direction":"N", 
-    "position":{"x":1,"y":1} 
+    "position":[{"direction":"N","x":3,"y":1},
+
+        {"direction":"N","x":3,"y":2},
+        {"direction":"E","x":1,"y":6},
+        {"direction":"N","x":3,"y":3}],
+    "coins":3,
 }
 
 antony ={
-    "name": "antony",
+    "name": "Antony",
     "color": "yellow",
     "points":"0",
-    "coins":"0",
-
-    "direction":"S", 
-    "position":{"x":2,"y":2} 
+    "position":[{"direction":"W","x":1,"y":1}],
+    "coins":2,
 }
 
 sam ={
-    "name": "sam",
+    "name": "Sam",
     "color": "blue",
     "points":"0",
-    "coins":"0",
 
-    "direction":"west", 
-    "position":{"x":6,"y":3} 
-
+    "position":[{"direction":"S","x":3,"y":5},{"direction":"S","x":3,"y":2}],
+    "coins":2,
 }
 
-bala ={
-    "name": "bala",
-    "color": "yellow",
+sarana ={
+    "name": "Sarana",
+    "color": "magenta",
     "points":"0",
-    "coins":"0"
+
+    "position":[{"direction":"E","x":1,"y":2},{"direction":"E","x":3,"y":2}],
+    "coins":2,
 }

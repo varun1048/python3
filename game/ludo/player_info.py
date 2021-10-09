@@ -3,9 +3,9 @@ class Player():
         self.name = info['name']
         self.color = info['color']
 
-        self.direction = info["direction"]
+        # self.direction = info["direction"]
         self.position= info['position']
-        self.coins=  info['position']
+        self.coins=  info['coins']
         self.points= info['points']
 
     def info(self):

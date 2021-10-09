@@ -3,6 +3,7 @@ import os
     
 def color(color)->str:
     return colored("#", color)
+    # return "#"
 
 
 class Board:
@@ -10,14 +11,21 @@ class Board:
     def __init__(self,players) -> None:
         self.colros = ""
         self.players = players
+
+
         
     
+
     def mini_display(self):
-        # os.system('cls')
         print()
+        # os.system('cls')
 
         for player in self.players:
-            print(f"""{player.name}  {player.color} {player.position}""")
+            print(f""" {player.name}\t\t   { color(player.color) }  coins:{player.coins}  """,end=" ")
+            for positions in player.position:
+                print(f"""positions:{positions["direction"]}-{positions["x"]}-{positions["y"]} """,end=" ")
+            print()
+
 
     def top_line(self,top):
         line = ""
@@ -32,12 +40,15 @@ class Board:
                 line +="_"           
         print(line)
     
-    def print_color(self,d,i,j) -> True:
-        for p in self.players:
-            if (p.position['x'] == i and p.position['y'] == j) and p.direction == d:
-                self.colros= color(p.color )
-                return True
-        return False
+    def print_color(self,direction,i,j) -> True:
+        for player in self.players:
+            for positions in player.position:
+                if (positions['x'] == i and positions['y'] == j) and (positions['direction'] == direction):
+                    # self.colros= color(player.color)  
+                    self.colros= colored(f"#{ player.position.index(positions)+1}", player.color)  
+                    return True
+        else: 
+            return False
 
 
 
@@ -45,23 +56,19 @@ class Board:
     def display(self):
         print()
         os.system('cls')
-        
-        # east, west, north, south 
-
-        row = 3
-        column = 6
+        self.mini_display()
 
         d = 'N'
-        for i in range(1,column+1):
+        for i in range(1,7):
             print()
             print("\t"*7,end="  ")
-            for j in range(1,row+1):
+            for j in range(1,4):
                 print(" ",end="")
-                if self.print_color(d,i,j):                    
+                if self.print_color(d,j,i):                    
                     C =self.colros  
                     print(f"|__{C}__|",end=" ")
                 else:
-                    print(f"|_{d}-{i}{j}|",end=" ")
+                    print(f"|_{d}-{j}{i}|",end=" ")
                     # print(f"|_|",end=" ")
                     # print()
                     
@@ -94,17 +101,18 @@ class Board:
 
 
         d = 'S'
-        for i in range(1,column+1):
+        for i in range(1,7):
             print()
             print("\t"*7,end="    ")
-            for j in range(1,row+1):
+            for j in range(1,4):
                 print(" ",end="")
-                if self.print_color(d,i,j):                    
+                if self.print_color(d,j,i):                    
                     C =self.colros  
                     print(f"|__{C}__|",end=" ")
                 else:
-                    print(f"|_{d}-{i}{j}|",end=" ")
-                
+                    print(f"|_{d}-{j}{i}|",end=" ")
+
+        print()                
                 
 
 
