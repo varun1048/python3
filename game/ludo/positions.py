@@ -48,7 +48,7 @@ position_all.append({"direction":"W","x":3,"y":5})
 position_all.append({"direction":"W","x":3,"y":4})    
 position_all.append({"direction":"W","x":3,"y":3})    
 position_all.append({"direction":"W","x":3,"y":3})    
-position_all.append({"direction":"W","x":1,"y":1})
+position_all.append({"direction":"W","x":3,"y":1})
 
 position_all.append({"direction":"W","x":2,"y":1})    
 

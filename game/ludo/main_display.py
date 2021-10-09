@@ -11,11 +11,7 @@ class Board:
     def __init__(self,players) -> None:
         self.colros = ""
         self.players = players
-
-
         
-    
-
     def mini_display(self):
         print()
         # os.system('cls')

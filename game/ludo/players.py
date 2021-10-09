@@ -15,7 +15,7 @@ antony ={
     "name": "Antony",
     "color": "yellow",
     "points":"0",
-    "position":[{"direction":"W","x":1,"y":1}],
+    "position":[{"direction":"W","x":1,"y":1},{"direction":"N","x":3,"y":6},{"direction":"E","x":3,"y":2}],
     "coins":0,
 }
 
