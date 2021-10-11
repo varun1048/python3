@@ -48,7 +48,8 @@ class Lodu():
         return {
             'name':"Antony",
             'coin':0,
-            'dice':self.dice()
+            'dice':1
+            # 'dice':self.dice()
         }
 
 
@@ -61,10 +62,10 @@ class Lodu():
         # print(self.player_input())
 
 
-        # self.board.display()
+        self.board.display()
         # sleep(2)
-        # self.move(self.player_input())
-        # self.board.display()
+        self.move(self.player_input())
+        self.board.display()
 
 
 
@@ -94,7 +95,5 @@ class Lodu():
                 self.move(self.player_input())
                 sleep(3)
                 self.board.display()
-
-
-        loop()
+        # loop()  
 

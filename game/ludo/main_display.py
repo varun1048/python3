@@ -47,6 +47,25 @@ class Board:
             return False
 
 
+    def Nums_coins(self,d,i,j) ->str:
+        output = f""
+        for player in self.players:
+            if (i == 1 and j == 6) and d == 'W':
+                if player.staring_direction == "N":
+                    output = f"\t{player.coins}\t"
+
+            if (i == 2 and j == 6) and d == 'W':
+                if player.staring_direction == "W":
+                    output = f"{player.coins}\t\t "
+
+                    
+                elif player.staring_direction == "E":
+                    output = f"\t\t{player.coins}"
+
+            if (i == 3 and j == 6) and d == 'W':
+                if player.staring_direction == "S":
+                    output = f"\t{player.coins}\t"
+            return output 
 
 
     def display(self):
@@ -85,7 +104,7 @@ class Board:
                     else:
                         print(f"|{we}({i}{j})|",end=" ")
                 # print(f"|_____|",end=" ")
-                print("\t\t",end="")
+                print(f"\t {self.Nums_coins(we,i,j)} \t",end="")
 
             print()
 

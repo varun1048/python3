@@ -7,6 +7,8 @@ class Player():
         self.position= info['position']
         self.coins=  len(info['position'])
         self.points= info['points']
+        self.staring_direction = info["staring_direction"]
+
 
     def info(self):
         return f"""
