@@ -3,7 +3,6 @@ import os
     
 def color(color)->str:
     return colored("#", color)
-    # return "#"
 
 
 class Board:
@@ -11,6 +10,8 @@ class Board:
     def __init__(self,players) -> None:
         self.colros = ""
         self.players = players
+
+        self.debug = []
         
     def mini_display(self):
         print()
@@ -21,8 +22,6 @@ class Board:
             for positions in player.position:
                 print(f"""positions:{positions["direction"]}-{positions["x"]}-{positions["y"]} """,end=" ")
             print()
-
-
     def top_line(self,top):
         line = ""
         conter = 0
@@ -35,37 +34,62 @@ class Board:
             else:
                 line +="_"           
         print(line)
+    def Nums_coins(self,d,i,j) ->str:
+        temp = {
+            "swith":False,
+            "value": "",
+            "color":""
+        }
+
+        
+        output = f"\t\t"
+        for player in self.players:
+
+            if (i == 1 and j == 6) and d == 'W':
+                if player.staring_direction == "N":
+                    coloring = colored("#",player.color)
+                    output = f"\t{coloring} {player.coins}\t"
+
+            if (i == 2 and j == 6) and d == 'W':
+
+                if player.staring_direction == "W":
+                    temp["swith"] = True
+                    temp["value"] =  player.coins
+                    temp["color"] =  player.color
+
+            if (i == 2 and j == 6) and d == 'W':
+                # self.debug.append(player.staring_direction)
+                if player.staring_direction == "E" and  temp["swith"] :
+                        coloring = colored("#",player.color)
+                        coloring_w = colored("#",temp['color'])
+                        return f"    {coloring_w}{temp['value']}     {coloring}{player.coins}\t"
+
+                elif not player.staring_direction == "E" and  temp["swith"] :
+                        coloring = colored("#",temp['color'])
+                        output =  f"{coloring}{temp['value']}\t\t"
+                
+                elif player.staring_direction == "E" and not temp["swith"] :
+                        coloring = colored("#",player.color)
+                        output =  f"\t\t{coloring}{player.coins}"          
+
+            if (i == 3 and j == 6) and d == 'W':
+                if player.staring_direction == "S":
+                    coloring = colored("#",player.color)
+                    output = f"\t{coloring}{player.coins}\t"
+
+        return output 
+
     
     def print_color(self,direction,i,j) -> True:
         for player in self.players:
             for positions in player.position:
                 if (positions['x'] == i and positions['y'] == j) and (positions['direction'] == direction):
-                    # self.colros= color(player.color)  
-                    self.colros= colored(f"#{ player.position.index(positions)+1}", player.color)  
+                    self.colros = colored(f"#{ player.position.index(positions)+1}", player.color)  
                     return True
         else: 
             return False
 
 
-    def Nums_coins(self,d,i,j) ->str:
-        output = f""
-        for player in self.players:
-            if (i == 1 and j == 6) and d == 'W':
-                if player.staring_direction == "N":
-                    output = f"\t{player.coins}\t"
-
-            if (i == 2 and j == 6) and d == 'W':
-                if player.staring_direction == "W":
-                    output = f"{player.coins}\t\t "
-
-                    
-                elif player.staring_direction == "E":
-                    output = f"\t\t{player.coins}"
-
-            if (i == 3 and j == 6) and d == 'W':
-                if player.staring_direction == "S":
-                    output = f"\t{player.coins}\t"
-            return output 
 
 
     def display(self):
@@ -93,8 +117,7 @@ class Board:
 
         d = ['W','E']
         for i in range(1,4):
-            print("\t\t",end="")
-
+            print("\t",end="")
             for we in d:
                 for j in range(1,7):
                     print("",end=" ")
@@ -103,11 +126,8 @@ class Board:
                         print(f"|__{C}__|",end=" ")
                     else:
                         print(f"|{we}({i}{j})|",end=" ")
-                # print(f"|_____|",end=" ")
                 print(f"\t {self.Nums_coins(we,i,j)} \t",end="")
-
             print()
-
         print()
 
 
@@ -128,7 +148,10 @@ class Board:
                     print(f"|_{d}-{j}{i}|",end=" ")
 
         print()                
-                
+
+            
+
+
 
 
 

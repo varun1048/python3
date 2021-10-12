@@ -42,7 +42,7 @@ class Lodu():
                     # print("list len",len(position_all))
                     print("not in list bro",index_chane)   
 
-
+    
     
     def player_input(self) ->dict:
         return {
