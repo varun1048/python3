@@ -40,14 +40,14 @@ class Lodu():
 
                 except ValueError:
                     # print("list len",len(position_all))
-                    print("not in list bro",index_chane)   
+                    print("not in list bro")   
 
     
     
     def player_input(self) ->dict:
         return {
             'name':"Antony",
-            'coin':0,
+            'coin':0,   
             'dice':1
             # 'dice':self.dice()
         }

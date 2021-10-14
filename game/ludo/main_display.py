@@ -1,10 +1,8 @@
 from termcolor import colored
-import os
-    
+import os    
+
 def color(color)->str:
     return colored("#", color)
-
-
 class Board:
 
     def __init__(self,players) -> None:
@@ -84,7 +82,9 @@ class Board:
         for player in self.players:
             for positions in player.position:
                 if (positions['x'] == i and positions['y'] == j) and (positions['direction'] == direction):
-                    self.colros = colored(f"#{ player.position.index(positions)+1}", player.color)  
+                    # self.colros = colored(f"#{ player.position.index(positions)+1}", player.color)  
+                    temp = player.position.index(positions)
+                    self.colros = colored(f"#{ player.position[temp]['name']}", player.color)  
                     return True
         else: 
             return False
@@ -100,14 +100,14 @@ class Board:
         d = 'N'
         for i in range(1,7):
             print()
-            print("\t"*7,end="  ")
+            print("\t"*7,end="")
             for j in range(1,4):
                 print(" ",end="")
                 if self.print_color(d,j,i):                    
                     C =self.colros  
                     print(f"|__{C}__|",end=" ")
                 else:
-                    print(f"|_{d}-{j}{i}|",end=" ")
+                    print(f"|_{d}-{j}{i}_|",end=" ")
                     # print(f"|_|",end=" ")
                     # print()
                     
@@ -117,7 +117,7 @@ class Board:
 
         d = ['W','E']
         for i in range(1,4):
-            print("\t",end="")
+            print(" ",end="")
             for we in d:
                 for j in range(1,7):
                     print("",end=" ")
@@ -126,7 +126,7 @@ class Board:
                         print(f"|__{C}__|",end=" ")
                     else:
                         print(f"|{we}({i}{j})|",end=" ")
-                print(f"\t {self.Nums_coins(we,i,j)} \t",end="")
+                print(f"\t{self.Nums_coins(we,i,j)} \t",end="")
             print()
         print()
 
@@ -138,7 +138,7 @@ class Board:
         d = 'S'
         for i in range(1,7):
             print()
-            print("\t"*7,end="    ")
+            print("\t"*7,end="")
             for j in range(1,4):
                 print(" ",end="")
                 if self.print_color(d,j,i):                    
