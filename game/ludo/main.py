@@ -6,8 +6,8 @@ import players
 def main():  
     plaryes = []
 
-    plaryes.append(Player(players.varun))
     plaryes.append(Player(players.sarana))
+    plaryes.append(Player(players.varun))
     plaryes.append(Player(players.antony))
     plaryes.append(Player(players.sam))
  

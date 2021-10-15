@@ -39,8 +39,8 @@ antony ={
     "position":[
 
         {"direction":"E","x":1,"y":1    ,"name":'a'},
-        # {"direction":"E","x":1,"y":2    ,"name":'b'},
-        # {"direction":"E","x":1,"y":3    ,"name":'c'}
+        {"direction":"E","x":1,"y":2    ,"name":'b'},
+        {"direction":"E","x":1,"y":3    ,"name":'c'}
 
 
         ],

@@ -28,9 +28,10 @@ class Lodu():
         dice  = self.dice()
         # dice  = 1
         print("\n"*2)
-        print(f"\t\t\t\t\t\tyour dice number:",dice)
-        print(colored(f"\t\t\t\t\t\t{self.current_player.name}",self.current_player.color),end="'s coins are")
-        print("\n",end="\t\t\t\t\t\t")
+        print(f"\t\t\t\t\t|\tyour dice number:",dice)
+        print("\t\t\t\t\t|\t"+colored(f"{self.current_player.name}",self.current_player.color),end="'s coins are")
+        print("\n",end="\t\t\t\t\t|\t")
+
         for coin in self.current_player.position:
             print(f'{coin["name"]}',end="\t")
 
@@ -92,14 +93,5 @@ class Lodu():
                     self.brain()
 
         loop()  
-
-
-        # import os
-        # os.system("cls")
-
-        # self.board.display()
-        # self.move(self.player_input())
-        # self.board.display()
-        
 
 
