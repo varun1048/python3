@@ -10,10 +10,9 @@ def main():
     plaryes.append(Player(players.sarana))
     plaryes.append(Player(players.antony))
     plaryes.append(Player(players.sam))
-    
+ 
     ludo_game = Lodu(plaryes)
     ludo_game.start()  
-
 
 if __name__ == '__main__':  
     main()

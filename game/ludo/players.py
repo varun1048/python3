@@ -5,9 +5,9 @@ varun ={
     "staring_direction":"N",
     
     "position":[
-        {"direction":"N","x":3,"y":1    ,"name":'a'},
-        {"direction":"N","x":3,"y":2    ,"name":'b'},
-        {"direction":"N","x":3,"y":3    ,"name":'c'},
+        {"direction":"N","x":3,"y":6    ,"name":'a'},
+        {"direction":"N","x":3,"y":5    ,"name":'b'},
+        {"direction":"N","x":3,"y":4    ,"name":'c'},
         ],
     "coins":0,
 }
@@ -21,8 +21,8 @@ sarana ={
 
 
     "position":[
-        {"direction":"W","x":1,"y":1    ,"name":'b'},
         {"direction":"W","x":2,"y":1    ,"name":'a'},
+        {"direction":"W","x":1,"y":1    ,"name":'b'},
         {"direction":"W","x":3,"y":1    ,"name":'c'}        
         ],
 
@@ -39,8 +39,8 @@ antony ={
     "position":[
 
         {"direction":"E","x":1,"y":1    ,"name":'a'},
-        {"direction":"E","x":1,"y":2    ,"name":'b'},
-        {"direction":"E","x":1,"y":3    ,"name":'c'}
+        # {"direction":"E","x":1,"y":2    ,"name":'b'},
+        # {"direction":"E","x":1,"y":3    ,"name":'c'}
 
 
         ],

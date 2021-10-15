@@ -1,5 +1,6 @@
 from time import sleep
 from random import randint
+from termcolor import colored
 
 from  main_display import Board 
 from positions import position_all
@@ -10,90 +11,95 @@ class Lodu():
         self.players= players
         self.board = Board(players)   
 
-        self.findout = []
-    
+        self.findout_error = []
+        self.current_player = ""
+
     def dice(self) ->int:
         return randint(1,6)
     
+    def error(self):
+        for x in self.findout_error:
+            print(x)
 
 
-    def move(self,player):
 
-        for player_input in self.players:
-            if player_input.name ==  player["name"]:
-                index = self.players.index(player_input)
-                print()
-
-                # print(self.players[index].position[player['coin']])
-                try:
-                    
-                    index_chane = position_all.index(self.players[index].position[player['coin']]) + player['dice']
-                    # print(position_all[34])
-
-                    try: 
-                        self.players[index].position[player['coin']]  = position_all[index_chane]
-                        self.findout.append(self.players[index].position[player['coin']])
-
-                    except    IndexError:
-                        # print( self.players[index].position[player['coin']] )
-                        self.players[index].position[player['coin']] = position_all[player['dice']-1]
-
-                except ValueError:
-                    # print("list len",len(position_all))
-                    print("not in list bro")   
-
-    
-    
     def player_input(self) ->dict:
+
+        dice  = self.dice()
+        # dice  = 1
+        print("\n"*2)
+        print(f"\t\t\t\t\t\tyour dice number:",dice)
+        print(colored(f"\t\t\t\t\t\t{self.current_player.name}",self.current_player.color),end="'s coins are")
+        print("\n",end="\t\t\t\t\t\t")
+        for coin in self.current_player.position:
+            print(f'{coin["name"]}',end="\t")
+
+        coins = []   
+        for x in self.current_player.position:
+            coins.append(x["name"]) 
+
+        while True:
+            self.error()
+            coin = input("\n\t\t\t\t\t"+"-"*32+">")
+            if coin in coins:
+                break
+            print("\n\t\t\t\t\t invalide input ! ")
+
         return {
-            'name':"Antony",
-            'coin':0,   
-            'dice':1
-            # 'dice':self.dice()
+            'coin':coin,   
+            'dice':dice
         }
 
 
+
+    def brain(self):
+        data = self.player_input()
+        index = 0
+
+        for position in self.current_player.position:             
+            if data['coin'] == position['name']:
+                
+                temp = dict(position)
+                temp.pop('name')
+
+                index_change = int(position_all.index(temp) + data['dice'])
+                try:        
+                    set_position =dict(position_all[index_change])
+                except:
+                    index_change = index_change - 52
+                    set_position = dict(position_all[index_change])                
+                    # sleep(20)
+                temp = set_position
+                temp.update({"name":data['coin']})
+                self.current_player.position[index] = temp
+
+                return None
+
+            index += 1
+
+        
+
+    
+
+
     def start(self):
+        def loop():
+            while True:
+                for player in self.players:
+                    self.current_player = player
+
+                    self.board.display()    
+                    self.brain()
+
+        loop()  
+
 
         # import os
         # os.system("cls")
+
+        # self.board.display()
+        # self.move(self.player_input())
+        # self.board.display()
         
-        # self.board.mini_display()
-        # print(self.player_input())
 
-
-        self.board.display()
-        # sleep(2)
-        self.move(self.player_input())
-        self.board.display()
-
-
-
-
-
-       
-        # self.board.display()
-        # d = self.dice()
-        # print(d)
-        # sleep(3)
-        # self.move( {
-        #     'name':"Antony",
-        #     'coin':0,
-        #     'dice':d
-        # })
-        # self.board.display()
-
-
-        # for x in self.findout:
-        #     print(x)
-
-        def loop():
-            while True:
-                # self.board.display()
-                # sleep(1)
-                print(self.player_input())
-                self.move(self.player_input())
-                sleep(3)
-                self.board.display()
-        # loop()  
 

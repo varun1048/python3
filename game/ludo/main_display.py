@@ -3,8 +3,10 @@ import os
 
 def color(color)->str:
     return colored("#", color)
-class Board:
 
+
+class Board:
+    
     def __init__(self,players) -> None:
         self.colros = ""
         self.players = players
@@ -123,7 +125,7 @@ class Board:
                     print("",end=" ")
                     if self.print_color(we,i,j):                    
                         C =self.colros  
-                        print(f"|__{C}__|",end=" ")
+                        print(f"|__{C}_|",end=" ")
                     else:
                         print(f"|{we}({i}{j})|",end=" ")
                 print(f"\t{self.Nums_coins(we,i,j)} \t",end="")
