@@ -1,3 +1,4 @@
+from time import sleep
 from termcolor import colored
 import os    
 
@@ -12,6 +13,11 @@ class Board:
         self.players = players
 
         self.debug = []
+        self.holding_players_position = []
+
+        for player in self.players:
+            for positions in player.position:
+                    self.holding_players_position.append(positions)
         
     def mini_display(self):
         print()
@@ -34,14 +40,12 @@ class Board:
             else:
                 line +="_"           
         print(line)
-    def Nums_coins(self,d,i,j) ->str:
+    def center_display(self,d,i,j) ->str:
         temp = {
             "swith":False,
             "value": "",
             "color":""
-        }
-
-        
+        }       
         output = f"\t\t"
         for player in self.players:
 
@@ -79,17 +83,46 @@ class Board:
 
         return output 
 
-    
+
+    # def coins_or_coin(self,direction,i,j):
+            
+
+    #                 # sleep(3)
+
+    #     print(self.holding_players_position)
+    #     sleep(10)
+
+        
     def print_color(self,direction,i,j) -> True:
+        result = False
+
+        # self.coins_or_coin(direction,i,j)
+
         for player in self.players:
             for positions in player.position:
                 if (positions['x'] == i and positions['y'] == j) and (positions['direction'] == direction):
-                    # self.colros = colored(f"#{ player.position.index(positions)+1}", player.color)  
+                    
                     temp = player.position.index(positions)
                     self.colros = colored(f"#{ player.position[temp]['name']}", player.color)  
-                    return True
-        else: 
-            return False
+                    result = True        
+        
+        return result
+
+
+        # for player in self.players:
+        #     for positions in player.position:
+        #         if (positions['x'] == i and positions['y'] == j) and (positions['direction'] == direction):
+                    
+        #             temp = player.position.index(positions)
+        #             self.colros = colored(f"#{ player.position[temp]['name']}", player.color)  
+        #             result = True        
+        
+        # return result
+
+
+    
+
+
 
 
 
@@ -103,19 +136,20 @@ class Board:
         for i in range(1,7):
             print()
             print("\t"*7,end="")
+            
             for j in range(1,4):
                 print(" ",end="")
+
                 if self.print_color(d,j,i):                    
                     C =self.colros  
                     print(f"|__{C}__|",end=" ")
                 else:
-                    print(f"|_{d}-{j}{i}_|",end=" ")
+                    print(f"|_{d}({j}{i})_|",end=" ")
                     # print(f"|_|",end=" ")
                     # print()
                     
 
         print("\n"*2)
-
 
         d = ['W','E']
         for i in range(1,4):
@@ -128,14 +162,9 @@ class Board:
                         print(f"|__{C}_|",end=" ")
                     else:
                         print(f"|{we}({i}{j})|",end=" ")
-                print(f"\t{self.Nums_coins(we,i,j)} \t",end="")
+                print(f"\t{self.center_display(we,i,j)} \t",end="")
             print()
         print()
-
-
-
-
-
 
         d = 'S'
         for i in range(1,7):
@@ -147,7 +176,7 @@ class Board:
                     C =self.colros  
                     print(f"|__{C}__|",end=" ")
                 else:
-                    print(f"|_{d}-{j}{i}|",end=" ")
+                    print(f"| {d}({j}{i}) |",end=" ")
 
         print()                
 

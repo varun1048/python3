@@ -14,6 +14,8 @@ class Lodu():
         self.findout_error = []
         self.current_player = ""
 
+
+
     def dice(self) ->int:
         return randint(1,6)
     
@@ -88,10 +90,8 @@ class Lodu():
             while True:
                 for player in self.players:
                     self.current_player = player
-
                     self.board.display()    
                     self.brain()
-
         loop()  
 
 

@@ -1,13 +1,16 @@
 varun ={
-    "name": "Varun ",
+    "name": "Varun",
     "color": "red",
     "points":"0",
     "staring_direction":"N",
     
     "position":[
-        {"direction":"N","x":3,"y":6    ,"name":'a'},
-        {"direction":"N","x":3,"y":5    ,"name":'b'},
-        {"direction":"N","x":3,"y":4    ,"name":'c'},
+        {"direction":"N","x":2,"y":1    ,"name":'a'},
+        {"direction":"N","x":2,"y":1    ,"name":'b'},
+        {"direction":"N","x":1,"y":4    ,"name":'c'},
+        {"direction":"N","x":1,"y":2    ,"name":'d'},
+        {"direction":"N","x":1,"y":4    ,"name":'e'},
+
         ],
     "coins":0,
 }
@@ -26,7 +29,7 @@ sarana ={
         {"direction":"W","x":3,"y":1    ,"name":'c'}        
         ],
 
-    "coins":0,
+    "   ":0,
 }
 
 

@@ -1,16 +1,39 @@
-class Test_cases:
-    def __init__(self,direction,position,dice,output) -> None:
-        self.direction = direction
-        self.position =position
-        self.dice =dice
-        self.output =output
-        self.yourout = {}
-        def __repr__(self):
-            return f"""Player object Name:{self.name} Color:{self.color}"""
-
-        def __str__(self):
-            return self.__repr__()
+import os    
+import players
 def test():
-    test1 = Test_cases()
-    
-    print("varun")
+    os.system('cls')
+    coin_or_coins = []
+    naming = []
+
+    for player in  players.varun['position']:
+        print(player)
+
+    def fun(position) -> bool:
+        result = False
+        for coin in coin_or_coins:
+            if (position["direction"] == coin['direction']) and (position["x"] == coin['x']) and  (position["y"] == coin['y']):
+                result = True
+                break
+        
+        return result
+
+    print()
+    for position in  players.varun['position']:
+        if players.varun['position'].index(position) == 0:
+            coin_or_coins.append(position)
+
+        if  fun(position):
+            naming.append({'names':position['name']})
+        else:
+            coin_or_coins.append(position)
+
+
+
+    for player in  coin_or_coins:
+        print(player)
+
+    print()
+    print(naming)
+
+
+
